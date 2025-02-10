@@ -1,0 +1,66 @@
+/* ====== ESTILOS GENERALES ====== */
+body {
+    background: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ====== ENCABEZADO ====== */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* ====== AUTENTICACIÓN ====== */
+#seccion-auth {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#logout-btn {
+    display: block;
+    width: 100%;
+}
+
+/* ====== MAPA ====== */
+#map {
+    height: 350px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== TARJETAS ====== */
+.card {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== BOTONES ====== */
+button {
+    width: 100%;
+}
+
+/* ====== TABLA RESPONSIVA ====== */
+#tabla-clima {
+    width: 100% !important;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== GRÁFICO ====== */
+canvas {
+    width: 100% !important; 
+    height: auto !important; 
+    max-width: 100%; 
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
