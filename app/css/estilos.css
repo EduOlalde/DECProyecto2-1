@@ -4,63 +4,231 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-/* ====== ENCABEZADO ====== */
 h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #007bff;
 }
 
-/* ====== AUTENTICACIÓN ====== */
-#seccion-auth {
-    max-width: 400px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-#logout-btn {
-    display: block;
+header {
+    align-items: center;
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    text-align: center;
+    display: flex;
+    flex-direction: column;  /* Alineación vertical para cuando no hay botón */
+    min-height: 100px;  /* Para que el header tenga un tamaño mínimo */
+    position: relative;
     width: 100%;
 }
 
-/* ====== MAPA ====== */
+/* Cuando el botón de cerrar sesión está oculto, se centra el contenido */
+header:has(#logout-btn[style*="display: none"]) h1 {
+    margin: 0 auto;  /* Asegura que el h1 esté centrado cuando el botón está oculto */
+}
+
+/* ====== CONTENEDORES ====== */
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+#seccion-auth,
+#map,
+.card,
+.dataTables_wrapper,
+canvas {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: white;
+}
+
+#seccion-auth {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #map {
     height: 350px;
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ====== TARJETAS ====== */
-.card {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* ====== BOTONES ====== */
-button {
+button,
+.btn,
+.dt-buttons .btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover,
+.btn:hover,
+.dt-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #b52b38;
+}
+
+#logout-btn {
+    max-width: 200px;
+    margin: 10px auto;
+    display: block;
+}
+
+/* ====== ENTRADAS Y SELECTS ====== */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+#ciudad-input,
+#anno-select {
+    border-radius: 6px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: 0.2s ease-in-out;
+}
+
+#ciudad-input:focus,
+#anno-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* ====== TABLA ====== */
+#tabla-clima,
+table.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table.dataTable thead {
+    background: #007bff;
+    color: white;
+    text-align: center;
+}
+
+table.dataTable thead th {
+    padding: 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #dee2e6;
+}
+
+table.dataTable tbody td {
+    padding: 10px;
+    text-align: center;
+}
+
+table.dataTable tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+/* ====== PAGINACIÓN ====== */
+.dataTables_paginate .paginate_button {
+    margin: 3px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    background: #f8f9fa;
+    color: #007bff;
+    border: 1px solid #ddd;
+    transition: 0.3s ease;
+}
+
+.dataTables_paginate .paginate_button:hover,
+.dataTables_paginate .paginate_button.current {
+    background: #007bff;
+    color: white;
+}
+
+.dataTables_filter input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+.dataTables_filter input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+div.dt-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    gap: 8px;
     width: 100%;
 }
 
-/* ====== TABLA RESPONSIVA ====== */
-#tabla-clima {
-    width: 100% !important;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ====== GRÁFICO ====== */
 canvas {
-    width: 100% !important; 
-    height: auto !important; 
-    max-width: 100%; 
-    background: white;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ====== MEJORAS VARIAS ====== */
+.dataTables_wrapper {
+    padding: 10px;
+    background: white;
+}

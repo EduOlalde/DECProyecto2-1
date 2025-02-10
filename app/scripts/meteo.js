@@ -82,6 +82,7 @@ export async function obtenerHistorialClima(ubicaciones, anno) {
 
             const datosUbicacion = datos.daily.time.map((fecha, index) => ({
                 ciudad: ubicacion.nombre,
+                anno,
                 fecha,
                 temperaturaMax: datos.daily.temperature_2m_max[index],
                 temperaturaMin: datos.daily.temperature_2m_min[index],
@@ -97,5 +98,6 @@ export async function obtenerHistorialClima(ubicaciones, anno) {
 
     return datosCompletos;
 }
+
 
 
