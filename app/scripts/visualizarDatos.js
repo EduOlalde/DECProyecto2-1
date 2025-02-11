@@ -148,10 +148,22 @@ function getRandomColor() {
     return `hsl(${Math.floor(Math.random() * 360)}, 70%, 50%)`;
 }
 
+// Rellena el selector de año con todos los años desde 1950 hasta la actualidad
+function rellenarSelectAnno() {
+    let annoSelect = $("#anno-select");
+
+    for (let anno = 1950; anno <= new Date().getFullYear(); anno++) {
+        $("<option>")
+            .val(anno)
+            .text(anno)
+            .appendTo(annoSelect);
+    }
+}
+
 /**
  * Eventos para capturar la ciudad y el año seleccionados.
  */
-export function agregarEventosDatos() {
+function agregarEventosDatos() {
     $("#agregar-ubicacion-btn").on("click", async () => {
         const ciudad = $("#ciudad-input").val().trim();
         const anno = parseInt($("#anno-select").val(), 10); // Obtener el año seleccionado
@@ -194,3 +206,5 @@ export function agregarEventosDatos() {
         }
     });
 }
+
+export { agregarEventosDatos, rellenarSelectAnno };

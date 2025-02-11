@@ -33,7 +33,10 @@ async function obtenerDatosMeteorologicos(latitud, longitud) {
     }
 }
 
-export async function obtenerDatosClima() {
+/**
+ * Obtiene los datos de clima de la ubicación actual y los muestra en el navegador
+ */
+async function obtenerDatosClima() {
     try {
         const ubicacion = await obtenerUbicacion();
         const datos = await obtenerDatosMeteorologicos(ubicacion.latitude, ubicacion.longitude);
@@ -63,7 +66,7 @@ export async function obtenerDatosClima() {
  * @param {number} anno - Año para obtener datos históricos.
  * @returns {Promise<Array>} - Array de datos meteorológicos históricos organizados por ubicación y fecha.
  */
-export async function obtenerHistorialClima(ubicaciones, anno) {
+async function obtenerHistorialClima(ubicaciones, anno) {
     const fechaInicio = `${anno}-01-01`;
     const fechaFin = `${anno}-12-31`;
 
@@ -99,5 +102,5 @@ export async function obtenerHistorialClima(ubicaciones, anno) {
     return datosCompletos;
 }
 
-
+export { obtenerDatosClima, obtenerHistorialClima, obtenerDatosMeteorologicos };
 
