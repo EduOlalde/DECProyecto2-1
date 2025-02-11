@@ -58,14 +58,14 @@ La aplicación incluye una funcionalidad de demo que utiliza TensorFlow.js para 
 
     *   Crea un nuevo proyecto en Firebase Console.
     *   Configura el servicio de Firebase Authentication.
-    *   Obtén las credenciales de tu proyecto y crea un archivo `config_firebase.js` en el directorio raíz de tu proyecto.
+    *   Obtén las credenciales de tu proyecto y crea un archivo `config_firebase.js` en el directorio scripts de tu proyecto.
 
     El archivo `config_firebase.js` debería verse de la siguiente manera:
 
     ```javascript
     // config_firebase.js
 
-    const firebaseConfig = {
+    export const firebaseConfig = {
       apiKey: "TU_API_KEY",
       authDomain: "TU_AUTH_DOMAIN",
       projectId: "TU_PROJECT_ID",
@@ -73,9 +73,6 @@ La aplicación incluye una funcionalidad de demo que utiliza TensorFlow.js para 
       messagingSenderId: "TU_MESSAGING_SENDER_ID",
       appId: "TU_APP_ID"
     };
-
-    // Inicializa Firebase
-    firebase.initializeApp(firebaseConfig);
     ```
 
     **Importante:** Asegúrate de reemplazar los valores de las variables con los datos de tu proyecto de Firebase.
