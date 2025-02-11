@@ -12,18 +12,16 @@ h1 {
 
 header {
     align-items: center;
-    justify-content: center;  /* Centra el contenido horizontalmente */
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
     text-align: center;
     display: flex;
-    flex-direction: column;  /* Alineación vertical para cuando no hay botón */
-    min-height: 100px;  /* Para que el header tenga un tamaño mínimo */
+    flex-direction: column;
+    /* Alineación vertical para cuando no hay botón */
+    min-height: 100px;
+    /* Para que el header tenga un tamaño mínimo */
     position: relative;
     width: 100%;
-}
-
-/* Cuando el botón de cerrar sesión está oculto, se centra el contenido */
-header:has(#logout-btn[style*="display: none"]) h1 {
-    margin: 0 auto;  /* Asegura que el h1 esté centrado cuando el botón está oculto */
 }
 
 /* ====== CONTENEDORES ====== */
@@ -226,6 +224,29 @@ canvas {
     max-width: 100%;
     padding: 10px;
 }
+
+/* ====== SECCIÓN TENSORFLOW ====== */
+#tensorflowSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#video,
+#canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+#toggleCamera {
+    display: block;
+    margin: auto;
+}
+
 
 /* ====== MEJORAS VARIAS ====== */
 .dataTables_wrapper {

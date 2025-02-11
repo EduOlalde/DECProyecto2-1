@@ -29,10 +29,15 @@
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 
+    <!-- TensorFlow -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
     <!-- Scripts principales -->
     <script type="module" src="./scripts/config_firebase.js" defer></script>
     <script type="module" src="./scripts/main.js"></script>
     <script type="module" src="./scripts/visualizarDatos.js"></script>
+    <script type="module" src="./scripts/tensorflow.js"></script>
 </head>
 
 <body>
@@ -78,12 +83,12 @@
                 </div>
             </div>
 
-            <h3 class="text-left text-primary mt-4">Aquí podrás conocer el pasado del lugar que quieras</h3>
+            <h3 class="text-left text-primary mt-4">Aquí podrás conocer el pasado de cualquier lugar</h3>
             <!-- Entrada de búsqueda -->
             <div class="input-group mt-4">
                 <input type="text" id="ciudad-input" class="form-control" placeholder="Ingrese una ciudad">
                 <select id="anno-select" class="form-select">
-                    <option value="">Seleccione un año</option>
+                    <option value="">Selecciona un año</option>
                 </select>
             </div>
             <button id="agregar-ubicacion-btn" class="btn btn-primary mt-1">Agregar</button>
@@ -102,7 +107,27 @@
             <div class="mt-5">
                 <canvas id="grafico-clima"></canvas>
             </div>
+
+            <!-- Sección TensorFlow -->
+            <div class="card mt-4">
+                <div class="card-header bg-info text-white">Reconocimiento de Objetos con TensorFlow.js</div>
+                <div class="card-body text-center">
+                    <button id="mostrarTensorFlow" class="btn btn-primary mb-3">Iniciar Reconocimiento de
+                        Objetos</button>
+                    <div id="tensorflowSection" style="display: none;">
+                        <button id="toggleCamera" class="btn btn-secondary mb-3">Cambiar Cámara</button>
+                        <div class="d-flex justify-content-center">
+                            <video id="video" class="rounded shadow" width="640" height="480" autoplay></video>
+                            <canvas id="canvas" class="rounded shadow" width="640" height="480"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+
+
 
         <button id="logout-btn" class="btn btn-danger mt-3 w-100" style="display:none;">Cerrar sesión</button>
     </div>

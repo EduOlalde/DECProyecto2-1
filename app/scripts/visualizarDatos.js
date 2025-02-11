@@ -77,7 +77,7 @@ function cargarDatosEnTabla(datos) {
             }
         ],
         language: {
-            url: "//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json"
+            url: "./recursos/datatables-es-ES.json"
         }
     });
 }
@@ -155,6 +155,10 @@ export function agregarEventosDatos() {
     $("#agregar-ubicacion-btn").on("click", async () => {
         const ciudad = $("#ciudad-input").val().trim();
         const anno = parseInt($("#anno-select").val(), 10); // Obtener el año seleccionado
+        if (isNaN(anno)) {
+            alert("Por favor, selecciona un año.");
+            return;
+        }
 
         if (!ciudad) {
             alert("Por favor, ingresa una ciudad.");
@@ -179,6 +183,10 @@ export function agregarEventosDatos() {
             const coords = await obtenerUbicacion();
             const ciudad = await obtenerCiudad(coords.latitude, coords.longitude);
             const anno = parseInt($("#anno-select").val(), 10);
+            if (isNaN(anno)) {
+                alert("Por favor, selecciona un año.");
+                return;
+            }
 
             await agregarUbicacion({ nombre: ciudad, latitud: coords.latitude, longitud: coords.longitude }, anno);
         } catch (error) {

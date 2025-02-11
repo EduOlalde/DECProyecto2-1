@@ -18,8 +18,12 @@ import {
     signOut
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
+// TensorFlow
+import { detectarObjetos } from "./tensorflow.js";
+
 
 $(document).ready(inicio);
+// Iniciar firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
@@ -56,8 +60,17 @@ function rellenarSelectAnno() {
     }
 }
 
-function iniciarFirebase() {
-    
+
+// Función para comprobar si hay cámaras disponibles
+async function checkCameras() {
+    try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoInputs = devices.filter(device => device.kind === "videoinput");
+        return videoInputs.length > 0; // Retorna true si hay cámaras disponibles
+    } catch (error) {
+        console.error("Error al comprobar las cámaras:", error);
+        return false;
+    }
 }
 
 function addEventos() {
@@ -142,4 +155,17 @@ function addEventos() {
     });
 
 
+    // Iniciar sección TensorFlow
+    $("#mostrarTensorFlow").on("click", async function () {
+        const camerasAvailable = await checkCameras();
+
+        if (!camerasAvailable) {
+            alert("No se encontraron cámaras disponibles. Verifica los permisos y la conexión del dispositivo.");
+            return;
+        }
+
+        $("#tensorflowSection").show(); // Muestra la sección de TensorFlow
+        detectObjects(); // Inicia el reconocimiento de objetos
+        $(this).prop("disabled", true); // Deshabilita el botón
+    });
 }
