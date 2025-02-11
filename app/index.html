@@ -116,8 +116,9 @@
                     <button id="mostrarTensorFlow" class="btn btn-primary mb-3">Iniciar Reconocimiento de
                         Objetos</button>
                     <div id="tensorflowSection" style="display: none;">
-                        <select id="cameraSelect"></select>
-                        <button id="toggleCamera" class="btn btn-secondary mb-3">Cambiar Cámara</button>
+                        <select id="cameraSelect" class="form-select mb-3"></select>
+                        <button id="detenerReconocimiento" class="btn btn-danger mb-3 mt-2"
+                            style="display: none;">Detener Reconocimiento</button>
                         <div class="d-flex justify-content-center">
                             <video id="video" class="rounded shadow" width="640" height="480" autoplay
                                 style="display: none;"></video>
@@ -126,6 +127,7 @@
                     </div>
                 </div>
             </div>
+
 
         </div>
 

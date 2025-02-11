@@ -19,7 +19,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
 // TensorFlow
-import { detectarObjetos, comprobarCamaras } from "./tensorflow.js";
+import { detectarObjetos, comprobarCamaras, detenerReconocimiento, iniciarVideo } from "./tensorflow.js";
 
 
 $(document).ready(inicio);
@@ -28,7 +28,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 function inicio() {
-
     addEventos();
 }
 
@@ -157,10 +156,14 @@ function addEventos() {
         $(this).prop("disabled", true);
     });
 
-    // Cambiar de cámara
-    $("#toggleCamera").on("click", function () {
-        const selectedCamera = $("#cameraSelect").val();
-        iniciarVideo(selectedCamera);
+    // 🔹 Evento para cambiar la cámara cuando el usuario selecciona otra
+    $("#cameraSelect").on("change", function () {
+        iniciarVideo($(this).val());
     });
+
+
+    $("#detenerReconocimiento").on("click", function () {
+        detenerReconocimiento();
+    })
 
 }
