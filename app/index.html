@@ -110,14 +110,17 @@
 
             <!-- Sección TensorFlow -->
             <div class="card mt-4">
-                <div class="card-header bg-info text-white">Reconocimiento de Objetos con TensorFlow.js</div>
+                <div class="card-header bg-info text-white">De regalo: Una demo de reconocimiento de objetos con
+                    TensorFlow.js</div>
                 <div class="card-body text-center">
                     <button id="mostrarTensorFlow" class="btn btn-primary mb-3">Iniciar Reconocimiento de
                         Objetos</button>
                     <div id="tensorflowSection" style="display: none;">
+                        <select id="cameraSelect"></select>
                         <button id="toggleCamera" class="btn btn-secondary mb-3">Cambiar Cámara</button>
                         <div class="d-flex justify-content-center">
-                            <video id="video" class="rounded shadow" width="640" height="480" autoplay></video>
+                            <video id="video" class="rounded shadow" width="640" height="480" autoplay
+                                style="display: none;"></video>
                             <canvas id="canvas" class="rounded shadow" width="640" height="480"></canvas>
                         </div>
                     </div>
