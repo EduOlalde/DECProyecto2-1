@@ -29,7 +29,7 @@ function actualizarUbicacion(lat, lon) {
         marcador.setLatLng(latLng);
     } else {
         marcador = L.marker(latLng).addTo(mapa)
-            .bindPopup("Estás aquí").openPopup();
+            .bindPopup("Estás aquí");
     }
 
     // Obtiene los datos meteorológicos y los muestra en el mapa
@@ -50,6 +50,6 @@ function agregarCapaInformacionAmbiental(datos, lat, lon) {
     // Añade un marcador con la información ambiental en la ubicación
     L.circleMarker([lat, lon], {
         color: 'blue',
-        radius: 20
-    }).addTo(mapa).bindPopup(info);
+        radius: 10
+    }).addTo(mapa).bindPopup(info).openPopup();
 }
