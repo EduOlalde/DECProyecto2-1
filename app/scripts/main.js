@@ -21,7 +21,9 @@ function inicio() {
     addEventos();
 }
 
-
+/**
+ * Mostrar el contenido principal e inicializar funcionalidad
+ */
 function loggedIn() {
     $('#seccion-auth').hide();
     $('#logout-btn').show();
@@ -33,12 +35,19 @@ function loggedIn() {
     rellenarSelectAnno();
 }
 
-// Función para mostrar mensajes
+/**
+ * Función para mostrar mensajes
+ * @param {*} mensaje - Cadena del mensaje
+ * @param {*} tipo - Estilo del mensaje
+ */
 function mostrarMensaje(mensaje, tipo) {
     const mensajeDiv = $('#mensaje');
     mensajeDiv.removeClass().addClass(`alert alert-${tipo}`).text(mensaje).show();
 }
 
+/**
+ * Aplicación de eventos al DOM
+ */
 function addEventos() {
     // Login
     $('#login-btn').click(function () {

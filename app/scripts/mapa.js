@@ -7,6 +7,9 @@ import { obtenerDatosMeteorologicos } from "./meteo.js";
 let mapa;
 let marcador;
 
+/**
+ * Inicializa el mapa Leaflet
+ */
 export function inicializarMapa() {
     // Inicializa el mapa
     mapa = L.map('map');
@@ -19,6 +22,11 @@ export function inicializarMapa() {
     });
 }
 
+/**
+ * Actualiza la posición del mapa en base a la ubicación del dispositivo
+ * @param {*} lat - Latitud
+ * @param {*} lon - Longitud
+ */
 function actualizarUbicacion(lat, lon) {
     // Actualiza la vista del mapa con la nueva ubicación
     const latLng = [lat, lon];
@@ -38,6 +46,12 @@ function actualizarUbicacion(lat, lon) {
     });
 }
 
+/**
+ * Capa con información meteorológica
+ * @param {*} datos - Datos meteorológicos
+ * @param {*} lat - Latitud
+ * @param {*} lon - Longitud
+ */
 function agregarCapaInformacionAmbiental(datos, lat, lon) {
     // Muestra la información ambiental del lugar (temperatura, humedad, etc.)
     const info = `

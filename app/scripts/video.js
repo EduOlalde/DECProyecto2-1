@@ -5,7 +5,9 @@ const cameraSelect = $("#cameraSelect");
 
 let currentStream = null;
 
-// Detener la cámara actual
+/**
+ * Detiene la cámara actual
+ */
 function pararVideo() {
     if (currentStream) {
         currentStream.getTracks().forEach(track => track.stop());
@@ -13,7 +15,11 @@ function pararVideo() {
     }
 }
 
-// Iniciar la cámara con el dispositivo seleccionado
+/**
+ * Inicia la cámara seleccionada
+ * @param {*} deviceId - ID de la cámara
+ * @returns 
+ */
 async function iniciarVideo(deviceId = null) {
     pararVideo(); // Asegura que no haya otra cámara activa
 
@@ -39,7 +45,10 @@ async function iniciarVideo(deviceId = null) {
     }
 }
 
-// Comprobar cámaras disponibles
+/**
+ * Comprueba las cámaras disponibles
+ * @returns true si hay cámaras disponibles
+ */
 async function comprobarCamaras() {
     try {
         const devices = await navigator.mediaDevices.enumerateDevices();
@@ -69,5 +78,4 @@ async function comprobarCamaras() {
     }
 }
 
-// Exportar funciones
 export { iniciarVideo, comprobarCamaras, pararVideo };

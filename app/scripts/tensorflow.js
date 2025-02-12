@@ -11,7 +11,9 @@ let modelo = null;
 let deteccionActiva = false;
 let deteccionIntervalo = null;
 
-// 🔹 Detectar objetos en la cámara
+/**
+ * Detección de objetos mediante TensorFlow
+ */
 async function detectarObjetos() {
   if (deteccionActiva) return; // Evita múltiples inicios
 
@@ -59,7 +61,9 @@ async function detectarObjetos() {
   });
 }
 
-// 🔹 Detener la detección y liberar la cámara completamente
+/**
+ * Detiene el reconocimiento de objetos y libera la cámara
+ */
 function detenerReconocimiento() {
   deteccionActiva = false;
   clearInterval(deteccionIntervalo);
@@ -72,5 +76,4 @@ function detenerReconocimiento() {
   $("#mostrarTensorFlow").prop("disabled", false);
 }
 
-// 🔹 Exportar funciones
 export { detectarObjetos, detenerReconocimiento };
