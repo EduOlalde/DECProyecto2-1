@@ -34,10 +34,6 @@
     2.  La aplicación detecta la ubicación del usuario o permite que ingrese una ciudad.
     3.  La aplicación obtiene los datos meteorológicos actuales de la API de Open-Meteo.
     4.  La aplicación muestra la información del clima actual (temperatura, humedad, viento, etc.) en un panel y en el mapa.
-*   **Flujo alternativo (usuario ingresa ciudad):**
-    1.  El usuario ingresa el nombre de una ciudad en el campo correspondiente.
-    2.  La aplicación obtiene las coordenadas de la ciudad usando la API de geocodificación.
-    3.  La aplicación continúa con el flujo principal desde el paso 3.
 
 ### 4. Visualizar el historial climático
 
@@ -47,6 +43,9 @@
     2.  El usuario selecciona un año.
     3.  La aplicación obtiene los datos históricos de la API de Open-Meteo Archive.
     4.  La aplicación muestra los datos en una tabla interactiva (DataTables.js) y un gráfico (Chart.js).
+*   **Flujo principal (descarga de datos):**
+    1.  El usuario selecciona una de las opciones
+    2.  La aplicación sirve un documento del tipo seleccionado
 
 ### 5. Utilizar el reconocimiento de objetos
 
