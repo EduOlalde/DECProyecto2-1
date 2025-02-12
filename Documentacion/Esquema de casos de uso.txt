@@ -1,0 +1,68 @@
+# Esquema de Casos de Uso - Aplicación Meteorológica
+
+## Actor: Usuario
+
+### 1. Autenticarse
+
+*   **Descripción:** El usuario se registra, inicia sesión o recupera su contraseña.
+*   **Flujo principal (registro):**
+    1.  El usuario proporciona su correo electrónico y contraseña.
+    2.  La aplicación crea una nueva cuenta de usuario en Firebase Authentication.
+    3.  El usuario inicia sesión automáticamente.
+*   **Flujo principal (inicio de sesión):**
+    1.  El usuario proporciona su correo electrónico y contraseña.
+    2.  La aplicación verifica las credenciales en Firebase Authentication.
+    3.  El usuario accede a las funcionalidades autenticadas.
+*   **Flujo principal (recuperación de contraseña):**
+    1.  El usuario proporciona su correo electrónico.
+    2.  La aplicación envía un correo electrónico de recuperación de contraseña a través de Firebase.
+
+### 2. Visualizar el mapa con la ubicación actual
+
+*   **Descripción:** El usuario visualiza un mapa interactivo con su ubicación actual.
+*   **Flujo principal:**
+    1.  El usuario accede a la aplicación.
+    2.  La aplicación solicita permiso para acceder a la ubicación del usuario.
+    3.  La aplicación obtiene la ubicación del usuario (latitud y longitud).
+    4.  La aplicación centra el mapa en la ubicación del usuario y muestra un marcador.
+
+### 3. Consultar el clima actual
+
+*   **Descripción:** El usuario consulta las condiciones meteorológicas actuales para su ubicación o para una ciudad específica.
+*   **Flujo principal:**
+    1.  El usuario accede a la aplicación.
+    2.  La aplicación detecta la ubicación del usuario o permite que ingrese una ciudad.
+    3.  La aplicación obtiene los datos meteorológicos actuales de la API de Open-Meteo.
+    4.  La aplicación muestra la información del clima actual (temperatura, humedad, viento, etc.) en un panel y en el mapa.
+*   **Flujo alternativo (usuario ingresa ciudad):**
+    1.  El usuario ingresa el nombre de una ciudad en el campo correspondiente.
+    2.  La aplicación obtiene las coordenadas de la ciudad usando la API de geocodificación.
+    3.  La aplicación continúa con el flujo principal desde el paso 3.
+
+### 4. Visualizar el historial climático
+
+*   **Descripción:** El usuario explora datos meteorológicos históricos para una o varias ubicaciones y años.
+*   **Flujo principal:**
+    1.  El usuario selecciona una o varias ubicaciones de la lista o añade una nueva.
+    2.  El usuario selecciona un año.
+    3.  La aplicación obtiene los datos históricos de la API de Open-Meteo Archive.
+    4.  La aplicación muestra los datos en una tabla interactiva (DataTables.js) y un gráfico (Chart.js).
+
+### 5. Utilizar el reconocimiento de objetos
+
+*   **Descripción:** El usuario utiliza la funcionalidad de reconocimiento de objetos en tiempo real a través de la cámara de su dispositivo.
+*   **Flujo principal:**
+    1.  El usuario habilita el acceso a la cámara.
+    2.  La aplicación carga el modelo TensorFlow.js.
+    3.  La aplicación muestra la imagen de la cámara en el canvas y realiza la detección de objetos.
+    4.  La aplicación dibuja las cajas de detección y etiquetas en el canvas.
+
+## Actor: Sistema
+
+### 6. Actualizar datos meteorológicos
+
+*   **Descripción:** El sistema actualiza periódicamente los datos meteorológicos en tiempo real desde la API de Open-Meteo.
+*   **Flujo principal:**
+    1.  El sistema ejecuta una tarea programada o un evento desencadenante.
+    2.  El sistema obtiene los datos meteorológicos actuales para las ubicaciones relevantes.
+    3.  El sistema actualiza la información mostrada en la aplicación.

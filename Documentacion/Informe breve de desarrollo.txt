@@ -1,0 +1,37 @@
+# Informe Breve sobre Decisiones de Diseño y Dificultades Encontradas en la Aplicación Meteorológica
+
+## Introducción
+
+Este informe resume las decisiones de diseño clave tomadas durante el desarrollo de la aplicación meteorológica, así como las dificultades encontradas y las soluciones implementadas. El objetivo principal del proyecto fue crear una aplicación web intuitiva y rica en funcionalidades que permitiera a los usuarios acceder a datos meteorológicos en tiempo real y explorar el historial climático de diversas ubicaciones.
+
+## Decisiones de Diseño
+
+*   **Interfaz de Usuario:** Se optó por un diseño responsivo utilizando Bootstrap para asegurar una experiencia de usuario consistente en dispositivos de diferentes tamaños. La interfaz se estructuró en torno a un mapa interactivo de Leaflet, un panel de información meteorológica actual y una sección para visualizar datos históricos a través de una tabla y un gráfico interactivo.
+*   **Adquisición de Datos:** Se seleccionó la API de Open-Meteo debido a su completitud y facilidad de uso. Esta API proporcionó datos tanto para el clima actual como para el histórico, lo cual simplificó la integración y aseguró la consistencia de los datos.
+*   **Autenticación de Usuarios:** Se implementó la autenticación de usuarios mediante Firebase Authentication para permitir a los usuarios guardar sus preferencias y configuraciones. Esto también añadió una capa de seguridad a la aplicación.
+*   **Visualización de Datos:** Se utilizaron Chart.js y DataTables.js para la representación gráfica y tabular de los datos históricos. Estas librerías ofrecieron la flexibilidad y las funcionalidades necesarias para crear visualizaciones interactivas y fáciles de entender.
+*   **Reconocimiento de Objetos:** La funcionalidad de reconocimiento de objetos en tiempo real con TensorFlow.js se añadió como un componente adicional para demostrar las capacidades de la aplicación y explorar el uso de inteligencia artificial.
+
+## Dificultades Encontradas
+
+*   **Integración de APIs:** La integración de la API de Open-Meteo y la API de geocodificación presentó algunos desafíos debido a las diferencias en los formatos de datos y los requisitos de autenticación. Se implementaron funciones personalizadas para procesar y adaptar los datos de cada API.
+*   **Manejo de Datos Históricos:** La gestión y visualización de grandes conjuntos de datos históricos requirió optimizaciones en el procesamiento y la presentación de la información. Se utilizó DataTables.js para implementar la paginación y la búsqueda en la tabla de datos, mejorando así la experiencia del usuario.
+*   **Visualización de Datos:** La creación de gráficos interactivos y fáciles de entender con Chart.js requirió un análisis cuidadoso de los datos y la selección de los tipos de gráficos más apropiados. Se realizaron varias iteraciones para ajustar la presentación de los datos y asegurar su claridad.
+*   **Rendimiento en Dispositivos Móviles:** La funcionalidad de reconocimiento de objetos con TensorFlow.js resultó ser computacionalmente intensiva y presentó desafíos de rendimiento en dispositivos móviles. Se exploraron diferentes configuraciones y optimizaciones para mejorar la velocidad de procesamiento y la fluidez de la detección.
+*   **Manejo de Cámaras:** La gestión de múltiples cámaras para el reconocimiento de objetos en tiempo real presentó desafíos al requerir la implementación de comprobaciones para asegurar la correcta selección y transición entre diferentes streams de video, evitando conflictos y errores.
+
+## Soluciones Implementadas
+
+*   Se crearon funciones auxiliares para el manejo de las respuestas de las APIs.
+*   Se optimizó la carga de datos para la tabla y el gráfico.
+*   Se ajustaron los parámetros de Chart.js para mejorar la visualización.
+*   Se exploraron opciones de configuración en TensorFlow.js y se realizaron pruebas en dispositivos móviles para mejorar el rendimiento.
+*   Se desarrolló una función para enumerar y verificar las cámaras disponibles, permitiendo al usuario seleccionar la cámara deseada a través de un menú.
+*   Se implementaron funciones para iniciar y detener los streams de video de forma controlada, asegurando una transición fluida entre cámaras y la correcta liberación de recursos.
+
+## Próximos Pasos
+
+*   Implementar mejoras en la interfaz de usuario para facilitar la navegación y el acceso a la información.
+*   Añadir nuevas funcionalidades, como la posibilidad de guardar ubicaciones favoritas y configurar alertas meteorológicas.
+*   Optimizar el rendimiento de la aplicación en dispositivos móviles, especialmente en la funcionalidad de reconocimiento de objetos.
+*   Explorar alternativas para el manejo de los datos de la API en caso de superar el límite de solicitudes sin ralentizar la aplicación.
