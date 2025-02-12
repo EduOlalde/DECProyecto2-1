@@ -12,7 +12,7 @@ import { login, register, logout, recuperarContrasena } from "./auth.js";
 
 // TensorFlow
 import { detectarObjetos, detenerReconocimiento } from "./tensorflow.js";
-import { comprobarCamaras } from "./video.js";
+import { comprobarCamaras, iniciarVideo } from "./video.js";
 
 
 $(document).ready(inicio);
