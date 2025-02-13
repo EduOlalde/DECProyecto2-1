@@ -13,14 +13,32 @@ let marcador;
 export function inicializarMapa() {
     // Inicializa el mapa
     mapa = L.map('map');
-    // Añade la capa de mapa base
-    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mapa);
+
+    // Capa base estándar (OSM)
+    const capaOSM = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    });
+
+    // Capa satélite (Esri)
+    const capaSatelite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+    });
+
+    // Añadir la capa OSM por defecto
+    capaOSM.addTo(mapa);
+
+    // Control para cambiar entre capas
+    L.control.layers({
+        "Mapa Estándar": capaOSM,
+        "Satélite": capaSatelite
+    }).addTo(mapa);
 
     // Obtiene la ubicación del usuario
     obtenerUbicacion().then(ubicacion => {
         actualizarUbicacion(ubicacion.latitude, ubicacion.longitude);
     });
 }
+
 
 /**
  * Actualiza la posición del mapa en base a la ubicación del dispositivo

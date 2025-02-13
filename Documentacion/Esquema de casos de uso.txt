@@ -25,6 +25,9 @@
     2.  La aplicación solicita permiso para acceder a la ubicación del usuario.
     3.  La aplicación obtiene la ubicación del usuario (latitud y longitud).
     4.  La aplicación centra el mapa en la ubicación del usuario y muestra un marcador.
+*   **Flujo principal:**
+    1. El usuario selecciona una capa de visualización
+    2. La aplicación muestra la capa selecionada
 
 ### 3. Consultar el clima actual
 
